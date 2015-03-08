@@ -562,7 +562,7 @@ class Inventory(object):
         """ if inventory came from a file, what's the directory? """
         if not self.is_file():
             return None
-        dname = os.path.dirname(self.host_list)
+        dname = os.path.dirname(self.host_list.rstrip('/').rstrip('\\'))
         if dname is None or dname == '' or dname == '.':
             cwd = os.getcwd()
             return os.path.abspath(cwd) 
